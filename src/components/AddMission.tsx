@@ -5,14 +5,14 @@ import { AddMissionProps } from "../App"
 export default function AddMission({setMissions}: AddMissionProps) {
 
     const [name, setName] = useState('')
-    const [status, setStatus] = useState('')
-    const [priority, setPriority] = useState('')
+    const [status, setStatus] = useState('Pending')
+    const [priority, setPriority] = useState('High')
     const [description, setDescription] = useState('')
 
     function addMissionAndPost(name: string, status: string, priority: string, description: string): void {
       const newMission = new Mission(name, status, priority, description)
 
-      fetch('https://reactexambackend.onrender.com/missions/:9010134', {
+      fetch('https://reactexambackend.onrender.com/missions/9010134', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,13 +41,11 @@ export default function AddMission({setMissions}: AddMissionProps) {
           <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} value={name} />
 
           <select onChange={(e) => setStatus(e.target.value)} value={status}>
-            <option value="open" selected disabled >status</option>
-            <option value="Pending">Pending</option>
+            <option value="Pending" selected>Pending</option>
             <option value="In Progress">In Progress</option>
             <option value="Completed">Completed</option>
             </select>
           <select onChange={(e) => setPriority(e.target.value)} value={priority}>
-            <option value="open" selected disabled >priority</option>
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>

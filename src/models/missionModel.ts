@@ -4,6 +4,7 @@ export default class Mission {
         public status:string,
         public priority:string,
         public description:string,
+        public _id?:string,
     ) {
     }
 }

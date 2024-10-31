@@ -11,9 +11,14 @@ function App() {
   const [missions, setMissions] = useState<Mission[]>([])
 
   useEffect(() => {
-    fetch('https://reactexambackend.onrender.com/missions/:9010134')
+    fetch('https://reactexambackend.onrender.com/missions/9010134')
       .then((response) => response.json())
-      .then((missions) => setMissions(missions))
+      .then((missions) => {        
+        setMissions(missions)
+      })
+
+      .catch((error) => console.error(error))
+
   }, [])
   return (
     <>
