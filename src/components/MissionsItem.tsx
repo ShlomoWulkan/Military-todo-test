@@ -42,8 +42,20 @@ export default function MissionsItem({mission, setMissions}:Props) {
             })
             .catch((error) => console.error(error));
         }
+  const getClassNameByStatus = () => {
+    switch (mission.status) {
+      case "Pending":
+        return "pending";
+      case "In Progress":
+        return "in-progress";
+      case "Completed":
+        return "completed";
+      default:
+        return "";
+    }
+  };
   return (
-    <div className="missions-item">
+    <div className={`missions-item ${getClassNameByStatus()}`}>
         <div className="mission-details">
             <p>Name: {mission.name}</p>
             <p>Status: {mission.status}</p>

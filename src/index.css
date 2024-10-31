@@ -92,3 +92,15 @@ select {
   border-radius: 10px;
   cursor: pointer;
 }
+
+.pending {
+  background-color: #dd4e4e;
+}
+
+.in-progress {
+  background-color: #c47a26;
+}
+
+.completed {
+  background-color: #31cc31;
+}
